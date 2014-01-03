@@ -143,6 +143,7 @@
         <item>Poker face</item>              <!-- 20: :-I -->
     </string-array>
 
+    <!-- Delay delivery -->
     <string-array name="send_delay_duration_values" translatable="false">
         <item>0</item>
         <item>3000</item>

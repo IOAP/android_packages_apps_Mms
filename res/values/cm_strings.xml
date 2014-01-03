@@ -14,152 +14,183 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="pref_templates_gestures_sensitivity_entries">
-      <item>1 (broadest)</item>
-      <item>2</item>
-      <item>3</item>
-      <item>4</item>
-      <item>5</item>
-      <item>6</item>
-      <item>7</item>
-      <item>8</item>
-      <item>9</item>
-      <item>10</item>
-      <item>11</item>
-      <item>12 (strictest)</item>
-    </string-array>
+    <!-- Message options - Add SMS to calendar -->
+    <string name="menu_add_to_calendar">Add to calendar</string>
 
-    <string-array name="pref_templates_gestures_sensitivity_values" translatable="false">
-      <item>1</item>
-      <item>2</item>
-      <item>3</item>
-      <item>4</item>
-      <item>5</item>
-      <item>6</item>
-      <item>7</item>
-      <item>8</item>
-      <item>9</item>
-      <item>10</item>
-      <item>11</item>
-      <item>12</item>
-    </string-array>
+    <!-- QM - Dialog box buttons -->
+    <string name="button_close">Close</string>
+    <string name="button_view">View</string>
+    <string name="button_templates">Templates</string>
 
-    <string-array name="pref_entries_input_type" translatable="false">
-        <item>@string/pref_keyboard_emoji</item>
-        <item>@string/pref_keyboard_new_line</item>
-    </string-array>
+    <!-- QM - Hint text in message body field when keyboard is exposed -->
+    <string name="type_to_reply_text_enter_to_send">Type to reply</string>
 
-    <string-array name="pref_values_input_type" translatable="false">
-        <item>64</item> <!-- InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE constant  -->
-        <item>80</item> <!-- InputType.TYPE_TEXT_VARIATION_LONG_MESSAGE constant  -->
-    </string-array>
+    <!-- QM - Toast -->
+    <string name="toast_sending_message">Sending message</string>
 
-    <string-array name="pref_unicode_stripping_entries" translatable="false">
-        <item>@string/pref_unicode_stripping_leave_intact</item>
-        <item>@string/pref_unicode_stripping_non_encodable</item>
-        <item>@string/pref_unicode_stripping_all</item>
-    </string-array>
+    <!-- QM - Quick reply -->
+    <string name="qm_quick_reply">Reply</string>
+    <string name="qm_mark_read">Read</string>
 
-    <string-array name="pref_unicode_stripping_values" translatable="false">
-        <item>0</item> <!-- MessagingPreferenceActivity.UNICODE_STRIPPING_LEAVE_INTACT constant -->
-        <item>1</item> <!-- MessagingPreferenceActivity.UNICODE_STRIPPING_NON_ENCODABLE constant -->
-        <item>2</item>
-    </string-array>
+    <!-- QM - Counter separator -->
+    <string name="message_counter_separator">of</string>
 
-    <string-array name="pref_mms_user_agent_entries" translatable="false">
-        <item>@string/pref_mms_ua_default_android</item>
-        <item>@string/pref_mms_ua_nokia_n95</item>
-        <item>@string/pref_mms_ua_iphone_3_0</item>
-        <item>@string/pref_mms_ua_blackberry_8800</item>
-        <item>@string/pref_mms_ua_sonyericsson_w800i</item>
-        <item>@string/pref_mms_ua_softbank_x01t</item>
-        <item>@string/pref_mms_ua_softbank_myrmms</item>
-        <item>@string/pref_mms_ua_nexus5</item>
-        <item>@string/pref_mms_ua_custom_option</item>
-    </string-array>
-    <string-array name="pref_mms_user_agent_values" translatable="false">
-        <item>default</item>
-        <item>NokiaN95/11.0.026; Series60/3.1 Profile/MIDP-2.0 Configuration/CLDC-1.1</item>
-        <item>iPhoneOS/3.0 (7A341)</item>
-        <item>BlackBerry8800/4.2.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/100</item>
-        <item>SonyEricssonW800i/R1L</item>
-        <item>SoftBank/1.0/X01T/TJ001</item>
-        <item>SoftBank/1.0/Smart/MyrMMS</item>
-        <item>Nexus5</item>
-        <item>custom</item>
-    </string-array>
+    <!-- NOTIFICATIONS -->
+    <!-- Privacy mode -->
+    <string name="pref_title_notification_privacy_mode_enabled">Privacy mode</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Hide sender and message in status bar and disable \'Quick reply\'</string>
+    <string name="notification_single_title_privacy_mode">New message</string>
+    <string name="notification_single_text_privacy_mode">1 unread message</string>
+    <string name="notification_multiple_title_privacy_mode">New messages</string>
+    <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> unread messages</string>
+    <string name="notification_ticker_privacy_mode">New message received</string>
 
-    <!-- NOTE: if you change anything about this array, you must make the corresponding change
-         to the array DEFAULT_SMILEY_RES_IDS in MessageListItem.java and to default_smiley_names
-         below. -->
-    <string-array name="default_smiley_texts" translatable="false">
-      <item>:-)</item>   <!-- 0: Happy -->
-      <item>:-(</item>   <!-- 1: Sad -->
-      <item>;-)</item>   <!-- 2: Winking -->
-      <item>:-P</item>   <!-- 3: Tongue sticking out -->
-      <item>=-O</item>   <!-- 4: Surprised -->
-      <item>:-*</item>   <!-- 5: Kissing -->
-      <item>:O</item>    <!-- 6: Yelling -->
-      <item>B-)</item>   <!-- 7: Cool -->
-      <item>:-$</item>   <!-- 8: Money mouth -->
-      <item>:-!</item>   <!-- 9: Foot in mouth -->
-      <item>:-[</item>   <!-- 10: Embarrassed -->
-      <item>O:-)</item>  <!-- 11: Angel -->
-      <item>:-\\</item>  <!-- 12: Undecided -->
-      <item>:\'(</item>  <!-- 13: Crying -->
-      <item>:-X</item>   <!-- 14: Lips are sealed -->
-      <item>:-D</item>   <!-- 15: Laughing -->
-      <item>o_O</item>   <!-- 16: Confused -->
-      <item>&lt;3</item> <!-- 17: Heart -->
-      <item>x-(</item>   <!-- 18: Mad -->
-      <item>:-/</item>   <!-- 19: Smirk -->
-      <item>:-I</item>   <!-- 20: Poker face -->
-    </string-array>
+    <!-- QUICKMESSAGE -->
+    <string name="pref_quickmessage">Quick reply</string>
 
-    <!-- NOTE: if you change anything about this array, you must make the corresponding change
-         to the array DEFAULT_SMILEY_RES_IDS in SmileyParser.java and to default_smiley_texts
-         above. -->
-    <string-array name="default_smiley_names">
-        <item>Happy</item>                   <!-- 0: :-) -->
-        <item>Sad</item>                     <!-- 1: :-( -->
-        <item>Winking</item>                 <!-- 2: ;-) -->
-        <item>Tongue sticking out</item>     <!-- 3: :-P -->
-        <item>Surprised</item>               <!-- 4: =-O -->
-        <item>Kissing</item>                 <!-- 5: :-* -->
-        <item>Yelling</item>                 <!-- 6: :O -->
-        <item>Cool</item>                    <!-- 7: B-) -->
-        <item>Money mouth</item>             <!-- 8: :-$ -->
-        <item>Foot in mouth</item>           <!-- 9: :-! -->
-        <item>Embarrassed</item>             <!-- 10: :-[ -->
-        <item>Angel</item>                   <!-- 11: O:-) -->
-        <item>Undecided</item>               <!-- 12: :-\\ -->
-        <item>Crying</item>                  <!-- 13: :\'( -->
-        <item>Lips are sealed</item>         <!-- 14: :-X -->
-        <item>Laughing</item>                <!-- 15: :-D -->
-        <item>Confused</item>                <!-- 16: o_O -->
-        <item>Heart</item>                   <!-- 17: <3 -->
-        <item>Mad</item>                     <!-- 18: x-( -->
-        <item>Smirk</item>                   <!-- 19: :-/ -->
-        <item>Poker face</item>              <!-- 20: :-I -->
-    </string-array>
+    <!-- Use dark theme -->
+    <string name="pref_dark_theme_title">Use dark theme</string>
+    <string name="pref_dark_theme_summary">If not selected, the default \'light\' theme will be used</string>
 
-    <string-array name="send_delay_duration_values" translatable="false">
-        <item>0</item>
-        <item>3000</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>20000</item>
-        <item>30000</item>
-    </string-array>
+    <!-- Show pop-up -->
+    <string name="pref_quickmessage_title">Show pop-up</string>
+    <string name="pref_quickmessage_summary">Display the QuickMessage pop-up for incoming SMS messages</string>
 
-    <string-array name="send_delay_duration_entries" translatable="false">
-        <item>@string/send_delay_immediate</item>
-        <item>@string/send_delay_3seconds</item>
-        <item>@string/send_delay_5seconds</item>
-        <item>@string/send_delay_10seconds</item>
-        <item>@string/send_delay_20seconds</item>
-        <item>@string/send_delay_30seconds</item>
-    </string-array>
+    <!-- Wake and unlock -->
+    <string name="pref_wake_unlock_title">Wake and unlock</string>
+    <string name="pref_wake_unlock_summary">Wake and unlock device on incoming message (insecure lock screens only)</string>
+
+    <!-- Close all messages -->
+    <string name="pref_close_all_title">Close all</string>
+    <string name="pref_close_all_summary">Close button closes all messages</string>
+
+    <!-- SMS TEMPLATES -->
+    <string name="prefs_templates_settings">SMS templates</string>
+
+    <!-- Manage SMS templates -->
+    <string name="pref_title_templates_manage">Templates</string>
+    <string name="pref_summary_templates_manage">Manage your SMS templates</string>
+    <string name="template_explanation">Insert or modify the template text and optionally draw a gesture to associate it</string>
+    <string name="template_insert_hint">Insert here the template text</string>
+    <string name="template_empty_text">Text field cannot be empty</string>
+    <string name="template_save">Save</string>
+    <string name="template_ctx_menu_title">Actions</string>
+    <string name="template_edit">Edit</string>
+    <string name="template_delete">Delete</string>
+    <string name="template_list_title">Templates</string>
+    <string name="template_new_title">New template</string>
+    <string name="template_insert">Insert template</string>
+    <string name="template_gesture_draw">Draw the gesture in the space below</string>
+    <string name="template_not_present_error">There are no defined templates</string>
+    <string name="template_not_present_error_title">Error</string>
+    <string name="template_select">Select a template</string>
+    <string name="template_confirm_dialog_title">Delete?</string>
+    <string name="gestures_already_present">A similar gesture is already associated with another template</string>
+    <string name="select_template">Select templates</string>
+
+    <!-- Show gesture trace -->
+    <string name="pref_title_templates_show_gesture">Gesture</string>
+    <string name="pref_summary_templates_show_gesture">Show gesture trace</string>
+
+    <!-- Gesture sensitivity -->
+    <string name="pref_title_template_gestures_sensitivity">Gesture sensitivity</string>
+
+    <!-- EXTRA SETTINGS -->
+    <string name="pref_extra_settings">Extra settings</string>
+
+    <!-- Speech bubbles -->
+    <string name="pref_title_speech_bubbles">Speech bubbles</string>
+    <string name="pref_summary_speech_bubbles">Use speech bubbles theme</string>
+    <string name="pref_title_no_avatars">No avatars</string>
+    <string name="pref_summary_no_avatars">Hide avatars with speech bubbles theme</string>
+
+    <!-- Strip unicode -->
+    <string name="pref_title_unicode_stripping">Strip unicode</string>
+    <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
+    <string name="pref_unicode_stripping_non_encodable">Strip non-encodable characters</string>
+    <string name="pref_unicode_stripping_all">Strip all unicode characters</string>
+
+    <!-- Enable emojis -->
+    <string name="pref_title_enable_emojis">Emoji support</string>
+    <string name="pref_summary_enable_emojis">Enable support for unicode emojis, a set of 471 nice emoticons</string>
+    <string name="menu_insert_smiley">Insert smiley</string>
+    <string name="menu_insert_emoji">Insert emojis</string>
+
+    <!-- Enable quick emojis -->
+    <string name="pref_title_enable_quick_emojis">Quick emoji button</string>
+    <string name="pref_summary_enable_quick_emojis">Display a button next to the text-input area for quick emoji access</string>
+
+    <!-- Enable SoftBank emoji encoding -->
+    <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
+    <string name="pref_summary_enable_softbank_encoding">Use SoftBank emoji encoding</string>
+
+    <!-- Full timestamps -->
+    <string name="pref_title_mms_full_timestamp">Full timestamps</string>
+    <string name="pref_summary_mms_full_timestamp">Display both date and time in timestamps</string>
+
+    <!-- Original timestamps -->
+    <string name="pref_title_mms_use_sent_timestamp">Original timestamps</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Display sent date instead of received date in timestamps</string>
+
+    <!-- Soft keyboard type -->
+    <string name="pref_title_input_type">Soft keyboard type</string>
+    <string name="pref_keyboard_emoji">Show the Emoticons key</string>
+    <string name="pref_keyboard_new_line">Show the Enter key</string>
+    <string name="pref_keyboard_unknown">Unknown, please reselect</string>
+
+    <!-- Settings item for boolean option for SMS Split Counter -->
+    <string name="pref_title_sms_split_counter">Split counter</string>
+    <!-- Settings item description for boolean SMS Split 160 characters setting -->
+    <string name="pref_summary_sms_split_counter">Adds counter to message ex. (1/2)</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Blacklist</string>
+    <string name="blacklist_summary_disabled">Disabled</string>
+    <string name="blacklist_summary">Incoming messages from phone numbers in the blacklist will be blocked</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Blocked a message from %s</string>
+    <string name="blacklist_notification_private_number">Blocked a message from a private number</string>
+    <string name="blacklist_notification_list_private">Private</string>
+    <string name="blacklist_notification_unknown_number">Blocked a message from unknown number %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> messages were blocked</string>
+    <string name="unblock_number">Unblock</string>
+
+    <!-- Blacklist management -->
+    <string name="add_to_blacklist">Add to blacklist</string>
+    <string name="add_to_blacklist_message">Future messages from %s will be blocked</string>
+
+    <!-- Generic blacklist handling -->
+    <string name="alert_dialog_yes">Yes</string>
+    <string name="alert_dialog_no">No</string>
+
+    <!-- Multi recipients -->
+    <string name="select_recipients">Select recipients</string>
+    <string name="groups_header">Groups</string>
+    <string name="no_recipients">No contacts found</string>
+    <string name="no_recipients_mobile_only">No matching contacts found. Try without the \'Mobile numbers only\' filter</string>
+    <string name="menu_done">Done</string>
+    <string name="menu_mobile">Mobile numbers only</string>
+    <string name="menu_groups">Show groups</string>
+    <string name="fastscroll_index_groups">GR</string> <!-- CHAR LIMIT=3 -->
+
+    <!-- MMS push permission -->
+    <string name="label_mms_push">MMS Push</string>
+    <string name="desc_mms_push">Pushes MMS from outbox to the network</string>
+
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Default Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_nexus5">Nexus 5</string>
+    <string name="pref_mms_ua_custom_option">Custom\u2026</string>
+    <string name="pref_title_mms_user_agent">Custom User-Agent</string>
+    <string name="pref_summary_mms_user_agent">Spoof phone as a different model for MMS</string>
+    <string name="pref_mms_user_agent_custom_set">Custom User Agent set to:\n</string>
 
     <!-- Delay delivery -->
     <string name="pref_title_send_delay">Delivery delay</string>
