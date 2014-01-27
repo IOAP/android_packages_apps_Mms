@@ -68,20 +68,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String NOTIFICATION_VIBRATE     = "pref_key_vibrate";
     public static final String NOTIFICATION_VIBRATE_WHEN= "pref_key_vibrateWhen";
     public static final String NOTIFICATION_RINGTONE    = "pref_key_ringtone";
-    public static final String NOTIFICATION_BREATH      = "pref_key_sms_breath";
     public static final String AUTO_RETRIEVAL           = "pref_key_mms_auto_retrieval";
     public static final String RETRIEVAL_DURING_ROAMING = "pref_key_mms_retrieval_during_roaming";
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
     public static final String GROUP_MMS_MODE           = "pref_key_mms_group_mms";
-
-    // Speech bubbles
-    public static final String SPEECH_BUBBLES           = "pref_key_speech_bubbles";
-    public static final String NO_AVATARS               = "pref_key_no_avatars";
-
-    // Emoji
-    public static final String ENABLE_EMOJIS            = "pref_key_enable_emojis";
-    public static final String ENABLE_QUICK_EMOJIS      = "pref_key_enable_quick_emojis";
-    public static final String SOFTBANK_EMOJIS          = "pref_key_enable_softbank_encoding";
 
     // Unicode
     public static final String UNICODE_STRIPPING            = "pref_key_unicode_stripping";
@@ -102,15 +92,15 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String FULL_TIMESTAMP            = "pref_key_mms_full_timestamp";
     public static final String SENT_TIMESTAMP            = "pref_key_mms_use_sent_timestamp";
 
+    // Vibrate pattern
+    public static final String NOTIFICATION_VIBRATE_PATTERN =
+            "pref_key_mms_notification_vibrate_pattern";
+
     // Privacy mode
     public static final String PRIVACY_MODE_ENABLED = "pref_key_enable_privacy_mode";
 
     // Keyboard input type
     public static final String INPUT_TYPE                = "pref_key_mms_input_type";
-
-    // Custom User-Agent
-    public static final String USER_AGENT               = "pref_key_mms_user_agent";
-    public static final String USER_AGENT_CUSTOM        = "pref_key_mms_user_agent_custom";
 
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
@@ -120,9 +110,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     // Blacklist
     public static final String BLACKLIST                 = "pref_blacklist";
-
-	// Unicode
-    public static final String STRIP_UNICODE             = "pref_key_strip_unicode";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -150,7 +137,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private Preference mManageSimPref;
     private Preference mClearHistoryPref;
     private CheckBoxPreference mVibratePref;
-    private CheckBoxPreference mBreathPref;
     private CheckBoxPreference mEnableNotificationsPref;
     private CheckBoxPreference mEnablePrivacyModePref;
     private CheckBoxPreference mMmsAutoRetrievialPref;
@@ -263,7 +249,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mMmsAutoRetrievialPref = (CheckBoxPreference) findPreference(AUTO_RETRIEVAL);
         mEnablePrivacyModePref = (CheckBoxPreference) findPreference(PRIVACY_MODE_ENABLED);
         mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
-        mBreathPref = (CheckBoxPreference) findPreference(NOTIFICATION_BREATH);
         mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
 
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
@@ -658,12 +643,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         editor.apply();
     }
-
-    public static boolean getBreathEnabled(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean(MessagingPreferenceActivity.NOTIFICATION_BREATH, false);
-    }
-
 
     public static boolean getPrivacyModeEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
