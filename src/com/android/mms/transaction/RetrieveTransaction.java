@@ -150,9 +150,6 @@ public class RetrieveTransaction extends Transaction implements Runnable {
             } else {
                 // Store M-Retrieve.conf into Inbox
                 PduPersister persister = PduPersister.getPduPersister(mContext);
-
-                ConvUtils.convPduBody(retrieveConf);
-
                 msgUri = persister.persist(retrieveConf, Inbox.CONTENT_URI, true,
                         MessagingPreferenceActivity.getIsGroupMmsEnabled(mContext), null);
 

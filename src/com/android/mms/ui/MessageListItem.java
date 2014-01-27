@@ -25,7 +25,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Paint.FontMetricsInt;
 import android.graphics.Typeface;
@@ -33,7 +32,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract.Profile;
 import android.provider.Telephony.Sms;
 import android.telephony.PhoneNumberUtils;
@@ -72,8 +70,6 @@ import com.android.mms.transaction.TransactionBundle;
 import com.android.mms.transaction.TransactionService;
 import com.android.mms.util.DownloadManager;
 import com.android.mms.util.ItemLoadedCallback;
-import com.android.mms.util.EmojiParser;
-import com.android.mms.util.SmileyParser;
 import com.android.mms.util.ThumbnailManager.ImageLoaded;
 import com.google.android.mms.ContentType;
 import com.google.android.mms.pdu.PduHeaders;
@@ -108,7 +104,6 @@ public class MessageListItem extends LinearLayout implements
     private TextView mDateView;
     public View mMessageBlock;
     private QuickContactDivot mAvatar;
-    private View mBubbleSpace;
     static private Drawable sDefaultContactImage;
     private Presenter mPresenter;
     private int mPosition;      // for debugging
@@ -146,7 +141,6 @@ public class MessageListItem extends LinearLayout implements
         mDeliveredIndicator = (ImageView) findViewById(R.id.delivered_indicator);
         mDetailsIndicator = (ImageView) findViewById(R.id.details_indicator);
         mAvatar = (QuickContactDivot) findViewById(R.id.avatar);
-        mBubbleSpace = (View) findViewById(R.id.bubble_space);
         mMessageBlock = findViewById(R.id.message_block);
     }
 
@@ -286,11 +280,6 @@ public class MessageListItem extends LinearLayout implements
     }
 
     private void updateAvatarView(String addr, boolean isSelf) {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(mContext);
-        boolean mSpeechBubbles = prefs.getBoolean(MessagingPreferenceActivity.SPEECH_BUBBLES, false);
-        boolean mNoAvatars = prefs.getBoolean(MessagingPreferenceActivity.NO_AVATARS, false);
-
         Drawable avatarDrawable;
         if (isSelf || !TextUtils.isEmpty(addr)) {
             Contact contact = isSelf ? Contact.getMe(false) : Contact.get(addr, false);
@@ -309,17 +298,6 @@ public class MessageListItem extends LinearLayout implements
             avatarDrawable = sDefaultContactImage;
         }
         mAvatar.setImageDrawable(avatarDrawable);
-        if (mSpeechBubbles) {
-            if (mNoAvatars) {
-                mAvatar.setVisibility(View.GONE);
-                mBubbleSpace.setVisibility(View.VISIBLE);
-            } else {
-                mAvatar.setVisibility(View.VISIBLE);
-                mBubbleSpace.setVisibility(View.GONE);
-            }
-        } else {
-            mAvatar.setVisibility(View.VISIBLE);
-        }
     }
 
     private void bindCommonMessage(final boolean sameItem) {
@@ -560,23 +538,9 @@ public class MessageListItem extends LinearLayout implements
                                        String contentType) {
         SpannableStringBuilder buf = new SpannableStringBuilder();
 
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(mContext);
-        boolean enableEmojis = prefs.getBoolean(MessagingPreferenceActivity.ENABLE_EMOJIS, false);
-
         boolean hasSubject = !TextUtils.isEmpty(subject);
-        SmileyParser parser = SmileyParser.getInstance();
         if (hasSubject) {
-            CharSequence smilizedSubject = parser.addSmileySpans(subject);
-            if (enableEmojis) {
-                EmojiParser emojiParser = EmojiParser.getInstance();
-                smilizedSubject = emojiParser.addEmojiSpans(smilizedSubject);
-            }
-            // Can't use the normal getString() with extra arguments for string replacement
-            // because it doesn't preserve the SpannableText returned by addSmileySpans.
-            // We have to manually replace the %s with our text.
-            buf.append(TextUtils.replace(mContext.getResources().getString(R.string.inline_subject),
-                    new String[] { "%s" }, new CharSequence[] { smilizedSubject }));
+            buf.append(mContext.getResources().getString(R.string.inline_subject, subject));
         }
 
         if (!TextUtils.isEmpty(body)) {
@@ -586,14 +550,9 @@ public class MessageListItem extends LinearLayout implements
                 buf.append(Html.fromHtml(body));
             } else {
                 if (hasSubject) {
-                    buf.append("\n");
+                    buf.append(" - ");
                 }
-                CharSequence smileyBody = parser.addSmileySpans(body);
-                if (enableEmojis) {
-                    EmojiParser emojiParser = EmojiParser.getInstance();
-                    smileyBody = emojiParser.addEmojiSpans(smileyBody);
-                }
-                buf.append(smileyBody);
+                buf.append(body);
             }
         }
 

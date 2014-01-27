@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -98,31 +99,11 @@
     <!-- EXTRA SETTINGS -->
     <string name="pref_extra_settings">Extra settings</string>
 
-    <!-- Speech bubbles -->
-    <string name="pref_title_speech_bubbles">Speech bubbles</string>
-    <string name="pref_summary_speech_bubbles">Use speech bubbles theme</string>
-    <string name="pref_title_no_avatars">No avatars</string>
-    <string name="pref_summary_no_avatars">Hide avatars with speech bubbles theme</string>
-
     <!-- Strip unicode -->
     <string name="pref_title_unicode_stripping">Strip unicode</string>
     <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
     <string name="pref_unicode_stripping_non_encodable">Strip non-encodable characters</string>
     <string name="pref_unicode_stripping_all">Strip all unicode characters</string>
-
-    <!-- Enable emojis -->
-    <string name="pref_title_enable_emojis">Emoji support</string>
-    <string name="pref_summary_enable_emojis">Enable support for unicode emojis, a set of 471 nice emoticons</string>
-    <string name="menu_insert_smiley">Insert smiley</string>
-    <string name="menu_insert_emoji">Insert emojis</string>
-
-    <!-- Enable quick emojis -->
-    <string name="pref_title_enable_quick_emojis">Quick emoji button</string>
-    <string name="pref_summary_enable_quick_emojis">Display a button next to the text-input area for quick emoji access</string>
-
-    <!-- Enable SoftBank emoji encoding -->
-    <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
-    <string name="pref_summary_enable_softbank_encoding">Use SoftBank emoji encoding</string>
 
     <!-- Full timestamps -->
     <string name="pref_title_mms_full_timestamp">Full timestamps</string>
@@ -174,24 +155,6 @@
     <string name="menu_groups">Show groups</string>
     <string name="fastscroll_index_groups">GR</string> <!-- CHAR LIMIT=3 -->
 
-    <!-- MMS push permission -->
-    <string name="label_mms_push">MMS Push</string>
-    <string name="desc_mms_push">Pushes MMS from outbox to the network</string>
-
-    <!-- Custom user-agent -->
-    <string name="pref_mms_ua_default_android">Default Android</string>
-    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
-    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
-    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
-    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
-    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
-    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
-    <string name="pref_mms_ua_nexus5">Nexus 5</string>
-    <string name="pref_mms_ua_custom_option">Custom\u2026</string>
-    <string name="pref_title_mms_user_agent">Custom User-Agent</string>
-    <string name="pref_summary_mms_user_agent">Spoof phone as a different model for MMS</string>
-    <string name="pref_mms_user_agent_custom_set">Custom User Agent set to:\n</string>
-
     <!-- Delay delivery -->
     <string name="pref_title_send_delay">Delivery delay</string>
     <string name="send_delay_immediate">Send immediately</string>
@@ -201,5 +164,14 @@
     <string name="send_delay_20seconds">20 seconds</string>
     <string name="send_delay_30seconds">30 seconds</string>
     <string name="sent_countdown">Message delivery countdown</string>
+
+    <!-- Vibrate pattern -->
+    <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
+    <string name="pref_mms_notification_vibrate_normal">Normal</string>
+    <string name="pref_mms_notification_vibrate_med_vib">Medium vibrate</string>
+    <string name="pref_mms_notification_vibrate_long_vib">Long vibrate</string>
+    <string name="pref_mms_notification_vibrate_mult_short">Multiple short</string>
+    <string name="pref_mms_notification_vibrate_mult_long">Multiple long</string>
 
 </resources>
