@@ -80,12 +80,6 @@
     <string name="blacklist_title">Liste noire</string>
     <string name="blacklist_summary_disabled">Désactivé</string>
     <string name="blacklist_summary">Les messages entrants des numéros de la liste noire seront bloqués</string>
-    <string name="blacklist_notification">Message de %s bloqué</string>
-    <string name="blacklist_notification_private_number">Message d\'un numéro privé bloqué</string>
-    <string name="blacklist_notification_list_private">Privé</string>
-    <string name="blacklist_notification_unknown_number">Message d\'un numéro inconnu %s bloqué</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> messages ont été bloqués</string>
-    <string name="unblock_number">Débloquer</string>
     <string name="add_to_blacklist">Ajouter à la liste noire</string>
     <string name="add_to_blacklist_message">Les futurs messages de %s seront bloqués</string>
     <string name="alert_dialog_yes">Oui</string>
@@ -106,4 +100,11 @@
     <string name="send_delay_20seconds">20 secondes</string>
     <string name="send_delay_30seconds">30 secondes</string>
     <string name="sent_countdown">Décompte avant l\'envoi</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Style de vibration</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Changer le style de vibration</string>
+    <string name="pref_mms_notification_vibrate_normal">Normal</string>
+    <string name="pref_mms_notification_vibrate_med_vib">Vibration moyenne</string>
+    <string name="pref_mms_notification_vibrate_long_vib">Vibration longue</string>
+    <string name="pref_mms_notification_vibrate_mult_short">Plusieurs courtes</string>
+    <string name="pref_mms_notification_vibrate_mult_long">Plusieurs longues</string>
 </resources>
