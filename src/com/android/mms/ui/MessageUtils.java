@@ -50,7 +50,6 @@ import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.text.style.URLSpan;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.android.mms.LogTag;
@@ -86,8 +85,6 @@ public class MessageUtils {
         void onResizeResult(PduPart part, boolean append);
     }
 
-    private static final int SELECT_SYSTEM = 0;
-    private static final int SELECT_EXTERNAL = 1;
     private static final String TAG = LogTag.TAG;
     private static String sLocalNumber;
     private static String[] sNoSubjectStrings;
@@ -468,10 +465,11 @@ public class MessageUtils {
 
         // If the message is from a different year, show the date and year.
         if (then.year != now.year) {
-            format_flags |= DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_SHOW_DATE;
+            format_flags |= DateUtils.FORMAT_SHOW_YEAR |
+            DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE;
         } else if (then.yearDay != now.yearDay) {
             // If it is from a different day than today, show only the date.
-            format_flags |= DateUtils.FORMAT_SHOW_DATE;
+            format_flags |= DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE;
         } else {
             // Otherwise, if the message is from today, show the time.
             format_flags |= DateUtils.FORMAT_SHOW_TIME;
@@ -481,50 +479,21 @@ public class MessageUtils {
         // and time no matter what we've determined above (but still make showing
         // the year only happen if it is a different year from today).
         if (fullFormat) {
-            format_flags |= (DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_TIME);
+            format_flags |= (DateUtils.FORMAT_SHOW_WEEKDAY |
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_TIME);
         }
 
         return DateUtils.formatDateTime(context, when, format_flags);
     }
 
-    public static void selectAudio(final Activity activity, final int requestCode) {
-        // We are not only displaying default RingtonePicker to add, we could have
-        // other choices like external audio and system audio. Allow user to select
-        // an audio from particular storage (Internal or External) and return it.
-        String[] items = new String[2];
-        items[SELECT_SYSTEM] = activity.getString(R.string.system_audio_item);
-        items[SELECT_EXTERNAL] = activity.getString(R.string.external_audio_item);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity,
-                android.R.layout.simple_list_item_1, android.R.id.text1, items);
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        AlertDialog dialog = builder.setTitle(activity.getString(R.string.select_audio))
-                .setAdapter(adapter, new OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent audioIntent = null;
-                        switch (which) {
-                            case SELECT_SYSTEM:
-                                audioIntent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-                                audioIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT,
-                                        false);
-                                audioIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT,
-                                        false);
-                                audioIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_INCLUDE_DRM,
-                                        false);
-                                audioIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE,
-                                        activity.getString(R.string.select_audio));
-                                break;
-                            case SELECT_EXTERNAL:
-                                audioIntent = new Intent();
-                                audioIntent.setAction(Intent.ACTION_PICK);
-                                audioIntent.setData(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
-                                break;
-                        }
-                        activity.startActivityForResult(audioIntent, requestCode);
-                    }
-                })
-                .create();
-        dialog.show();
+    public static void selectAudio(Activity activity, int requestCode) {
+        Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, false);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_INCLUDE_DRM, false);
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE,
+                activity.getString(R.string.select_audio));
+        activity.startActivityForResult(intent, requestCode);
     }
 
     public static void recordSound(Activity activity, int requestCode, long sizeLimit) {
@@ -729,13 +698,9 @@ public class MessageUtils {
     }
 
     public static String getLocalNumber() {
-        sLocalNumber = MmsApp.getApplication().getTelephonyManager().getLine1Number();
-        return sLocalNumber;
-    }
-
-    public static String getLocalNumber(int subscription) {
-        sLocalNumber = MmsApp.getApplication().getMSimTelephonyManager().
-                getLine1Number(subscription);
+        if (null == sLocalNumber) {
+            sLocalNumber = MmsApp.getApplication().getTelephonyManager().getLine1Number();
+        }
         return sLocalNumber;
     }
 

@@ -39,8 +39,6 @@ import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.SearchRecentSuggestions;
-import android.telephony.MSimSmsManager;
-import android.telephony.MSimTelephonyManager;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -75,6 +73,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
     public static final String GROUP_MMS_MODE           = "pref_key_mms_group_mms";
 
+    // Speech bubbles
+    public static final String SPEECH_BUBBLES           = "pref_key_speech_bubbles";
+    public static final String HIDE_MESSAGE_AVATARS     = "pref_key_hide_message_avatars";
+    public static final String HIDE_LIST_AVATARS          = "pref_key_hide_list_avatars";
+
+    // Emoji
+    public static final String ENABLE_EMOJIS            = "pref_key_enable_emojis";
+    public static final String ENABLE_QUICK_EMOJIS      = "pref_key_enable_quick_emojis";
+    public static final String SOFTBANK_EMOJIS          = "pref_key_enable_softbank_encoding";
+
     // Unicode
     public static final String UNICODE_STRIPPING            = "pref_key_unicode_stripping";
     public static final String UNICODE_STRIPPING_VALUE      = "pref_key_unicode_stripping_value";
@@ -104,6 +112,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     // Keyboard input type
     public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
+    // Custom User-Agent
+    public static final String USER_AGENT               = "pref_key_mms_user_agent";
+    public static final String USER_AGENT_CUSTOM        = "pref_key_mms_user_agent_custom";
+
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
     public static final String QM_LOCKSCREEN_ENABLED     = "pref_key_qm_lockscreen";
@@ -112,6 +124,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     // Blacklist
     public static final String BLACKLIST                 = "pref_blacklist";
+
+	// Unicode
+    public static final String STRIP_UNICODE             = "pref_key_strip_unicode";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -339,14 +354,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
                     TextUtils.isEmpty(MessageUtils.getLocalNumber())) {
                 mMmsPrefCategory.removePreference(mMmsGroupMmsPref);
             }
-        }
-
-        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-            int preferredSmsSub = MSimSmsManager.getDefault()
-                    .getPreferredSmsSubscription();
-            mManageSimPref.setSummary(
-                    getString(R.string.pref_summary_manage_sim_messages)
-                    + (preferredSmsSub + 1));
         }
 
         setEnabledNotificationsPref();

@@ -99,11 +99,33 @@
     <!-- EXTRA SETTINGS -->
     <string name="pref_extra_settings">Extra settings</string>
 
+    <!-- Speech bubbles -->
+    <string name="pref_title_speech_bubbles">Speech bubbles</string>
+    <string name="pref_summary_speech_bubbles">Use speech bubbles theme</string>
+    <string name="pref_title_hide_message_avatars">Hide message avatars</string>
+    <string name="pref_summary_hide_message_avatars">Hide avatars on message thread</string>
+    <string name="pref_title_hide_list_avatars">Hide list avatars</string>
+    <string name="pref_summary_hide_list_avatars">Hide avatars on conversation list</string>
+
     <!-- Strip unicode -->
     <string name="pref_title_unicode_stripping">Strip unicode</string>
     <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
     <string name="pref_unicode_stripping_non_encodable">Strip non-encodable characters</string>
     <string name="pref_unicode_stripping_all">Strip all unicode characters</string>
+
+    <!-- Enable emojis -->
+    <string name="pref_title_enable_emojis">Emoji support</string>
+    <string name="pref_summary_enable_emojis">Enable support for unicode emojis, a set of 471 nice emoticons</string>
+    <string name="menu_insert_smiley">Insert smiley</string>
+    <string name="menu_insert_emoji">Insert emojis</string>
+
+    <!-- Enable quick emojis -->
+    <string name="pref_title_enable_quick_emojis">Quick emoji button</string>
+    <string name="pref_summary_enable_quick_emojis">Display a button next to the text-input area for quick emoji access</string>
+
+    <!-- Enable SoftBank emoji encoding -->
+    <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
+    <string name="pref_summary_enable_softbank_encoding">Use SoftBank emoji encoding</string>
 
     <!-- Full timestamps -->
     <string name="pref_title_mms_full_timestamp">Full timestamps</string>
@@ -148,6 +170,20 @@
     <!-- Abbreviation of "Group" - CHAR LIMIT=3 -->
     <string name="fastscroll_index_groups">GR</string>
 
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Default Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_nexus5">Nexus 5</string>
+    <string name="pref_mms_ua_custom_option">Custom\u2026</string>
+    <string name="pref_title_mms_user_agent">Custom User-Agent</string>
+    <string name="pref_summary_mms_user_agent">Spoof phone as a different model for MMS</string>
+    <string name="pref_mms_user_agent_custom_set">Custom User Agent set to:\n</string>
+
     <!-- Delay delivery -->
     <string name="pref_title_send_delay">Delivery delay</string>
     <string name="send_delay_immediate">Send immediately</string>
@@ -166,5 +202,10 @@
     <string name="pref_mms_notification_vibrate_long_vib">Long vibrate</string>
     <string name="pref_mms_notification_vibrate_mult_short">Multiple short</string>
     <string name="pref_mms_notification_vibrate_mult_long">Multiple long</string>
+
+    <!-- Insert contact information -->
+    <string name="menu_insert_contact_info">Insert contact info</string>
+    <string name="cannot_find_contact">Can\'t insert information of the chosen contact</string>
+    <string name="insert_contact_info_positive_button">Insert</string>
 
 </resources>
