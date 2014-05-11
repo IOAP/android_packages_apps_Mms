@@ -45,6 +45,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INSTALL_DRM" />
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_PHONE_BLACKLIST" />
 
     <!-- Needed for QuickMessage -->
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
@@ -240,10 +241,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".ui.SelectMmsSubscription"
-            android:exported="true">
-        </service>
-
         <!-- Require sender permissions to prevent SMS spoofing -->
         <receiver android:name=".transaction.PrivilegedSmsReceiver"
             android:permission="android.permission.BROADCAST_SMS">
@@ -260,14 +257,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Require the sender to have this permission to prevent third party spoofing -->
-        <receiver android:name=".transaction.PrivilegedCbReceiver"
-            android:permission="android.permission.RECEIVE_EMERGENCY_BROADCAST">
-            <intent-filter>
-                <action android:name="android.cellbroadcastreceiver.CB_AREA_INFO_RECEIVED" />
-            </intent-filter>
-        </receiver>
-
         <!-- Catch-all receiver for broadcasts that don't have associated security -->
         <receiver android:name=".transaction.SmsReceiver">
             <intent-filter>
@@ -278,12 +267,6 @@
                 <action android:name="com.android.mms.transaction.MESSAGE_SENT" />
                 <!-- TODO Do a better data match here. -->
                 <data android:scheme="content" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND_MESSAGE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.mms.transaction.SEND_MESSAGE" />
             </intent-filter>
         </receiver>
 
